@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="/css/admin/admin_login.css">
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <img src="/uploads/mandi2.jpeg" alt="IIT Mandi" class="background-image">
+    </div>
+    <div class="right">
+      <div class="login-container">
+        <h1>Admin Login</h1>
+        <form action="/admin/login" method="POST">
+          <div class="form-group">
+            <label for="AdminId">Admin ID:</label>
+            <input type="text" id="AdminId" name="AdminId" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <button type="submit" class="btn">Login</button>
+        </form>
+        <p><a href="/admin/signup">Create an account</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

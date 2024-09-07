@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <link rel="stylesheet" href="/css/student/student_login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <img src="/uploads/mandi2.jpeg" id="profileImage" alt="IIT Mandi">
+        </div>
+        <div class="right">
+            <h1 class="log_heading">Student Login</h1>
+            <form action="/student/login" method="POST">
+                <label for="enrollment">Enrollment Number:</label>
+                <input type="text" id="enrollment" name="enrollment" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p><a href="/student/signup">Don't have an account? Sign up here</a></p>
+        </div>
+    </div>
+</body>
+</html>

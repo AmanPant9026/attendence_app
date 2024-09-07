@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Signup</title>
+    <link rel="stylesheet" href="/css/admin/admin_signup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <img id="profileImage" src="/uploads/mandi2.jpeg" alt="Admin Image">
+        </div>
+        <div class="right">
+            <h1 class="heading">Admin Signup</h1>
+            <form action="/admin/signup" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="AdminId">Admin ID:</label>
+                <input type="text" id="AdminId" name="AdminId" placeholder="Enter your Admin ID" required>
+
+                <label for="branch">Branch:</label>
+                <input type="text" id="branch" name="branch" placeholder="Enter your branch" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="/admin/login">Login here</a></p>
+        </div>
+    </div>
+</body>
+</html>

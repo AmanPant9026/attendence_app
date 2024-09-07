@@ -1,0 +1,50 @@
+<!-- views/admin/course_attendance.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Attendance</title>
+    <link rel="stylesheet" href="/css/admin/homecss.css">
+</head>
+<body>
+    <h1>Course Attendance</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Student Name</th>
+                <th>Course ID</th>
+                <th>Course Name</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% attendance.forEach(record => { %>
+            <tr>
+                <td><%= record.student_id %></td>
+                <td><%= record.name %></td>
+                <td><%= record.course_id %></td>
+                <td><%= record.course_name %></td>
+                <td><%= record.date %></td>
+                <td><%= record.status %></td>
+                <td>
+                    <form action="/admin/update-attendance" method="post">
+                        <input type="hidden" name="student_id" value="<%= record.student_id %>">
+                        <input type="hidden" name="course_id" value="<%= record.course_id %>">
+                        <input type="hidden" name="date" value="<%= record.date %>">
+                        <select name="status">
+                            <option value="Present" <% = record.status === 'Present' ? 'selected' : '' %>>Present</option> 
+                            <option value="Absent" <% = record.status === 'Absent' ? 'selected' : '' %>>Absent</option>
+                        </select>
+                        <button type="submit">Update</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>

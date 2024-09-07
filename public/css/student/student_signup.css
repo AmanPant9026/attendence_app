@@ -1,0 +1,115 @@
+/* Base styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8; /* Light blue-gray background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-width: 800px; /* Slightly increased container width */
+    width: 100%;
+    height: auto; /* Ensure the container adapts to content */
+    margin: 20px; /* Add margin for better spacing */
+}
+
+.left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff; /* Blue background */
+    position: relative;
+}
+
+#profileImage {
+    width: 100%;
+    height: 100%; /* Ensure the image covers the entire container */
+    object-fit: cover; /* Ensure the image covers the container without distortion */
+    border-radius: 15px 0 0 15px; /* Adjust border radius to match container corners */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow for a more pronounced effect */
+}
+
+.right {
+    flex: 1;
+    padding: 40px; /* Consistent padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f9f9f9; /* Light background for the form area */
+}
+
+.heading {
+    font-size: 32px; /* Larger font size for headings */
+    font-weight: 700;
+    margin-bottom: 20px; /* Reduced bottom margin for a more compact look */
+    color: #333;
+    text-align: center;
+}
+
+label {
+    font-size: 15px; /* Slightly larger font size for better readability */
+    margin-bottom: 8px; /* Reduced margin */
+    color: #555;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="file"] {
+    width: 100%;
+    padding: 12px; /* Increased padding for better user experience */
+    margin-bottom: 15px; /* Consistent margin */
+    border: 1px solid #ccc; /* Subtle border color */
+    border-radius: 8px; /* Slightly larger border radius for modern look */
+    font-size: 15px; /* Larger font size for better readability */
+    background-color: #fff; /* White background for form fields */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus state */
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="file"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Add a shadow effect on focus */
+    outline: none;
+}
+
+button.btn {
+    width: 100%;
+    padding: 12px; /* Increased padding for buttons */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px; /* Matching the border radius of form fields */
+    font-size: 16px; /* Larger font size for buttons */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background and hover effect */
+}
+
+button.btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+p {
+    text-align: center;
+    margin-top: 20px; /* Increased margin for spacing */
+    font-size: 14px;
+    color: #777;
+}
+
+p a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+p a:hover {
+    color: #0056b3;
+    text-decoration: underline; /* Underline effect on hover for better visibility */
+}

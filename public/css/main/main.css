@@ -1,0 +1,100 @@
+/* Reset some default styling */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, rgba(76,175,80,0.8), rgba(33,150,243,0.8));
+    background-size: 400% 400%;
+    animation: gradientAnimation 20s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('/uploads/mandi.jpg'); /* Path to your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Make the background image static */
+    background-blend-mode: overlay; /* Blend image with gradient */
+}
+
+.main-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95); /* Slightly transparent white background */
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    width: 350px;
+    max-width: 90%;
+    z-index: 1;
+}
+
+.welcome-message {
+    margin-bottom: 30px;
+}
+
+.welcome-message h1 {
+    font-size: 28px;
+    color: #333;
+    font-weight: 700;
+}
+
+.welcome-message p {
+    font-size: 18px;
+    color: #666;
+}
+
+.role-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between buttons */
+}
+
+.role-button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.student-button {
+    background-color: #4CAF50; /* Green */
+}
+
+.student-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.admin-button {
+    background-color: #2196F3; /* Blue */
+}
+
+.admin-button:hover {
+    background-color: #0b7dda;
+    transform: scale(1.05);
+}
+
+/* Gradient animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
