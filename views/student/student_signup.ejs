@@ -5,16 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Signup</title>
     <link rel="stylesheet" href="/css/student/student_signup.css">
+    <script>
+        function upload_image(enrollment) {
+            // Show loading spinner and disable button
+            document.getElementById('loading').style.display = 'flex';
+            document.getElementById('uploadButton').disabled = true;
+
+            fetch(`/run-python/${enrollment}`)
+                .then(response => response.text())
+                .then(data => {
+                    console.log('Response from server:', data);
+
+                    // Hide loading spinner and re-enable button
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('uploadButton').disabled = false;
+
+                    // Show success popup
+                    showPopup('Image inserted successfully!', 'success');
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+
+                    // Hide loading spinner and re-enable button
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('uploadButton').disabled = false;
+
+                    // Show error popup
+                    showPopup('Failed to insert image.', 'error');
+                });
+        }
+
+        function showPopup(message, type) {
+            const popup = document.getElementById('popup');
+            popup.textContent = message;
+            popup.className = 'popup ' + type;
+            popup.style.display = 'flex';
+
+            // Hide popup after 3 seconds
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 3000);
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <div class="left">
-            <!-- Optionally include a profile image or any other content here -->
+            <!-- Profile image -->
             <img id="profileImage" src="/uploads/mandi2.jpeg" alt="Profile">
         </div>
         <div class="right">
             <h1 class="heading">Student Signup</h1>
-            <form action="/student/signup" method="POST" enctype="multipart/form-data">
+            <form action="/student/signup" method="POST">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 
@@ -30,12 +72,20 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
                 
-                <label for="photo">Profile Photo:</label>
-                <input type="file" id="photo" name="photo" accept="image/*" required>
+                <!-- Button to trigger image upload -->
+                <button type="button" id="uploadButton" onclick="upload_image(document.getElementById('enrollment').value)">Upload Profile Photo</button>
                 
                 <button type="submit" class="btn">Signup</button>
             </form>
         </div>
     </div>
+
+    <!-- Loading spinner -->
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Popup for success or error messages -->
+    <div id="popup" class="popup"></div>
 </body>
 </html>

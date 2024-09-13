@@ -1,4 +1,3 @@
-/* Base styles */
 body, html {
     margin: 0;
     padding: 0;
@@ -112,4 +111,67 @@ p a {
 p a:hover {
     color: #0056b3;
     text-decoration: underline; /* Underline effect on hover for better visibility */
+}
+
+/* Circular loading spinner styles */
+.loading {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 50%;
+    color: #fff;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.loading .spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-left: 8px solid #007bff; /* Blue color */
+    border-radius: 50%;
+    width: 100px; /* Larger size for prominence */
+    height: 100px; /* Larger size for prominence */
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Popup styles */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    z-index: 1000; /* Ensure it appears above other elements */
+    color: #333;
+    text-align: center;
+}
+
+.popup.show {
+    display: block; /* Show when active */
+}
+
+.popup button {
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup button:hover {
+    background-color: #0056b3;
 }

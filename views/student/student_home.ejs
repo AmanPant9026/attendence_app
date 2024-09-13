@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Attendance</title>
-    <link rel="stylesheet" href="/css/student/student_home.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Home</title>
+  <link rel="stylesheet" href="/css/student/student_home.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Attendance Overview</h1>
-
-        <table class="attendance-table">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Course</th>
-                    <th>Status</th>
-                    <th>Raise Flag</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2024-09-01</td>
-                    <td>Data Structures</td>
-                    <td>Absent</td>
-                    <td><button class="flag-btn" data-date="2024-09-01" data-course="Data Structures">Raise Flag</button></td>
-                </tr>
-                <tr>
-                    <td>2024-09-02</td>
-                    <td>Operating Systems</td>
-                    <td>Present</td>
-                    <td>-</td>
-                </tr>
-                <!-- More rows as needed -->
-            </tbody>
-        </table>
-    </div>
-
-    <script src="/js/student/attendance.js"></script>
+  <div class="container">
+    <h1>Welcome, <%= studentName %>!</h1>
+    
+    <input type="text" id="searchQuery" placeholder="Search for courses..." class="search-input" onkeyup="searchCourses()">
+    
+    <h2>Available Courses:</h2>
+    <ul id="coursesList" class="courses-list">
+      <% if (courses.length === 0) { %>
+        <p>No courses available.</p>
+      <% } else { %>
+        <% courses.forEach(course => { %>
+          <li class="course-item">
+            <span class="course-name"><%= course.course_name %></span>
+            <form action="/student/enroll" method="post" class="enroll-form">
+              <input type="hidden" name="course" value="<%= course.id %>">
+              <button type="submit" class="enroll-button">Enroll</button>
+            </form>
+          </li>
+        <% }); %>
+      <% } %>
+    </ul>
+  </div>
+  <script>
+    function searchCourses() {
+      const searchQuery = document.getElementById('searchQuery').value.toLowerCase();
+      const courses = document.querySelectorAll('.course-item');
+      courses.forEach(course => {
+        const courseName = course.querySelector('.course-name').textContent.toLowerCase();
+        if (courseName.includes(searchQuery)) {
+          course.style.display = '';
+        } else {
+          course.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </body>
 </html>

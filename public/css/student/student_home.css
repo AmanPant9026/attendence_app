@@ -1,60 +1,92 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* student_home.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #e0f7fa, #80deea); /* Blue pinch background */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure body takes full viewport height */
 }
 
 .container {
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 800px;
+  width: 80%;
+  min-height: 80vh; /* Ensure the container covers at least 80% of viewport height */
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Center text and content */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 28px;
-    color: #333;
+  font-size: 24px;
+  margin: 0 0 20px;
+  color: #333;
 }
 
-.attendance-table {
-    width: 100%;
-    border-collapse: collapse;
+.search-input {
+  width: 50%; /* Center the search input */
+  padding: 10px;
+  margin: 0 auto 20px auto; /* Center horizontally and add margin at the bottom */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  display: block;
 }
 
-.attendance-table th, .attendance-table td {
-    padding: 12px;
-    text-align: center;
-    border: 1px solid #ddd;
+h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #555;
 }
 
-.attendance-table th {
-    background-color: #007bff;
-    color: #fff;
+.courses-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto; /* Center the course list */
+  width: 50%; /* Adjust width to fit nicely */
 }
 
-.attendance-table tr:nth-child(even) {
-    background-color: #f9f9f9;
+.course-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.flag-btn {
-    padding: 8px 12px;
-    background-color: #ff6347;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.course-name {
+  font-size: 16px;
+  color: #333;
 }
 
-.flag-btn:hover {
-    background-color: #e53d20;
+.enroll-form {
+  margin: 0;
+}
+
+.enroll-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.enroll-button:hover {
+  background-color: #0056b3;
 }

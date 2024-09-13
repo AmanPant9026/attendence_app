@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Home</title>
+</head>
+<body>
+  <h1>Attendance Records</h1>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Student ID</th>
+        <th>Course ID</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (typeof attendance !== 'undefined' && attendance.length > 0) { %>
+        <% attendance.forEach(record => { %>
+          <tr>
+            <td><%= record.student_id %></td>
+            <td><%= record.course_id %></td>
+            <td><%= record.status %></td>
+          </tr>
+        <% }); %>
+      <% } else { %>
+        <tr>
+          <td colspan="3">No attendance records found.</td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</body>
+</html>
